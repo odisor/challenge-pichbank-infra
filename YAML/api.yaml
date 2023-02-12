@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pich-banck-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pich-banck
+  template:
+    metadata:
+      labels:
+        app: pich-banck
+    spec:
+      containers:
+      - name: pich-banck
+        image: acrpichbank2.azurecr.io/bank_api:0.0.2
+        ports:
+        - containerPort: 80
+        - containerPort: 443

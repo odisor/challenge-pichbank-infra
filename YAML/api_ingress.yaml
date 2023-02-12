@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pich-banck-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /DevOps
+        pathType: Prefix
+        backend:
+          service:
+            name: pich-banck-service
+            port:
+              name: http
